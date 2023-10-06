@@ -1,0 +1,5 @@
+type Query {
+    getAllUsers: [UserGroup!]!
+    getUser(person_id: String!): UserGroup!
+}
+

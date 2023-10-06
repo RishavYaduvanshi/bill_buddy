@@ -1,0 +1,8 @@
+type Mutation{
+    createTransaction(
+        transaction_name:String!,
+        transaction_amount:Float!,
+        split_by:String!,
+        split_group_id:String!,
+    ): Transaction!
+}

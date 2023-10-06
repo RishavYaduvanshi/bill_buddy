@@ -1,0 +1,21 @@
+type Query{
+    getAllGroups: [MemberGroup]
+    getGroup(group_id: String!): MemberGroup
+    getGroupTransaction(group_id: String!): [Transaction]
+}
+
+type Transaction{
+    transaction_id: String!
+    transaction_name: String!
+    transaction_amount: Float!
+    split_by: String!
+    group_id: String!
+    transaction_date: String!
+    split_with: [Member]
+}
+type Member{
+    member_id: String
+    member_name: String
+    amount: Float
+    status: String
+}

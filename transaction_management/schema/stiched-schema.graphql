@@ -1,0 +1,9 @@
+type Transaction{
+    transaction_id:String!,
+    transaction_name:String!,
+    transaction_amount:Float!,
+    split_by:String!,
+    split_group_id:String!,
+    transaction_date:String!,
+    split_with:[String!],
+}

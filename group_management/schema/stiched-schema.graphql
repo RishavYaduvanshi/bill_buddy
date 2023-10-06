@@ -1,0 +1,17 @@
+type Group{
+    group_id: String!
+    group_name: String!
+    group_length: String!
+    created_by : String!
+    created_at: String!
+    updated_at: String!
+}
+type MemberGroup{
+    group_id: String!
+    group_name: String!
+    group_length: String!
+    created_by : String!
+    group_member: [String!]!
+    created_at: String!
+    updated_at: String!
+}

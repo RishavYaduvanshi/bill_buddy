@@ -1,0 +1,4 @@
+type Mutation{
+    createGroup(group_name: String!,group_length:String!,created_by:String!): Group!
+    joinToGroup(group_id: String!,person_id:String!): Group!
+}

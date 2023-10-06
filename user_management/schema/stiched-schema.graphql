@@ -1,0 +1,17 @@
+type User {
+    person_id:String!
+    name: String!
+    email: String!
+    age: Int!
+    created_at: String!
+    updated_at: String!
+}
+type UserGroup{
+    person_id:String!
+    name: String!
+    email: String!
+    age: Int!
+    group_join: [String!]!
+    created_at: String!
+    updated_at: String!
+}
