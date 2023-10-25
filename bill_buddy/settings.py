@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     "user_management.apps.UserManagementConfig",
     "group_management.apps.GroupManagementConfig",
     "transaction_management.apps.TransactionManagementConfig",
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -120,6 +123,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+# Set the custom user model
+AUTH_USER_MODEL = 'user_management.Person'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
