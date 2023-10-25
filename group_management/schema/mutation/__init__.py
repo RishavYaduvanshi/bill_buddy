@@ -14,8 +14,6 @@ def resolve_create_group(_,info,group_name,group_length,created_by):
         group_name=group_name,
         group_length=group_length,
         created_by=user_models.Person.objects.get(pk=created_by),
-        created_at= timezone.now(),
-        updated_at= timezone.now()
         )
     group.save()
     group.members.add(created_by)

@@ -9,11 +9,14 @@ def resolve_get_all_users(_,info):
     response = [
         {
             'person_id': person.person_id,
-            'name': person.name,
+            'username': person.username,
+            'first_name': person.first_name,
+            'last_name': person.last_name,
             'email': person.email,
             'age': person.age,
             'group_join': person.groups.all(),
             'created_at': person.created_at,
+            'updated_at': person.updated_at,
         }
         for person in persons
     ]
@@ -25,11 +28,13 @@ def resolve_get_user(_,info,person_id):
     person = Person.objects.get(person_id=person_id) 
     response = {
         'person_id': person.person_id,
-        'name': person.name,
+        'username': person.username,
+        'first_name': person.first_name,
+        'last_name': person.last_name,
         'email': person.email,
         'age': person.age,
         'group_join': person.groups.all(),
         'created_at': person.created_at,
-
+        'updated_at': person.updated_at,
     }
     return response

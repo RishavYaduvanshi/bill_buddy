@@ -55,14 +55,14 @@ def resolve_get_group_transaction(_,info,group_id):
             if member == transaction.split_by:
                 split_with.append({
                     "member_id": member.person_id,
-                    "member_name": member.name,
+                    "member_name": member.username,
                     "amount": split_amount,
                     "status": True,
                 })
             else:
                 split_with.append({
                     "member_id": member.person_id,
-                    "member_name": member.name,
+                    "member_name": member.username,
                     "amount": split_amount,
                     "status": False,
                 })

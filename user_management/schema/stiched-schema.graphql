@@ -11,9 +11,11 @@ type User {
 }
 type UserGroup{
     person_id:String!
-    name: String!
-    email: String!
-    age: Int!
+    username:String!,
+    first_name:String!,
+    last_name:String!,
+    email:String!,
+    age:Int!
     group_join: [String!]!
     created_at: String!
     updated_at: String!

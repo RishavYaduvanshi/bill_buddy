@@ -4,5 +4,5 @@ from .models import Person
 
 @admin.register(Person)
 class PersonRegistered(admin.ModelAdmin):
-    list_display = [('username')]
+    list_display = ['username','person_id','updated_at']
  

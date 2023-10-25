@@ -9,7 +9,7 @@ class Group(models.Model):
     group_name = models.CharField(max_length=200)
     group_length = models.IntegerField(default=1)
     created_by = models.ForeignKey("user_management.Person", on_delete=models.RESTRICT, related_name='created_groups')
-    created_at = models.DateField()
-    updated_at = models.DateField()
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
 
     members = models.ManyToManyField("user_management.Person", related_name='group_members')
