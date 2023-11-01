@@ -1,4 +1,4 @@
-type User {
+type Person {
     person_id:String!
     username:String!,
     password:String!,
