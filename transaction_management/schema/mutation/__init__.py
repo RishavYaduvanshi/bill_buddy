@@ -1,11 +1,13 @@
 from datetime import datetime
 from uuid import uuid4
 from ariadne import MutationType
+from auth import jwt_required
 
 mutation = MutationType()
 
 
 @mutation.field("createTransaction")
+@jwt_required
 def resolve_create_transaction(
     _, info, transaction_name, transaction_amount, split_by, split_group_id
 ):
@@ -15,6 +17,7 @@ def resolve_create_transaction(
 
 
     group = Group.objects.get(pk=split_group_id)
+    print('group', group)   
     transaction = Transaction(
         transaction_id=str(uuid4()),
         transaction_name=transaction_name,
@@ -23,10 +26,11 @@ def resolve_create_transaction(
         split_group_id=group,
         transaction_date=datetime.now(),
     )
+    print('transaction', transaction)
     transaction.save()
     transaction.split_with.set(group.members.all(), clear=True)
     transaction.save() 
-
+    
     transaction_obj = {
         "transaction_id": transaction.transaction_id,
         "transaction_name": transaction.transaction_name,

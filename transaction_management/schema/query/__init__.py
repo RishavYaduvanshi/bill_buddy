@@ -1,8 +1,10 @@
 from ariadne import QueryType
+from auth import jwt_required
 
 query = QueryType()
 
 @query.field("getTransaction")
+@jwt_required
 def resolve_get_transaction(_, info, transaction_id):
     from transaction_management.models import Transaction
     transaction = Transaction.objects.get(pk=transaction_id)

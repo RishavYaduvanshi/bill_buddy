@@ -1,4 +1,4 @@
-union LoginResponse = Person | Error
+union LoginResponse = LoginPerson | Error
 type Mutation {
   addUser(
     username: String!,
@@ -9,13 +9,15 @@ type Mutation {
     age: Int!
   ): Person!
 
-  loginUser(email: String!, password: String!): LoginResponse!
-
-
-  
+  loginUser(email: String!, password: String!): LoginResponse!  
 }
 type Error {
   message: String!
+}
+
+type LoginPerson{
+    person:Person!
+    token:String!
 }
 
 

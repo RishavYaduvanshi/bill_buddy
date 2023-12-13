@@ -2,6 +2,7 @@ type Query{
     getAllGroups: [MemberGroup]
     getGroup(group_id: String!): MemberGroup
     getGroupTransaction(group_id: String!): [Transaction]
+    getAllGroupsByUser(user_id: String!): [MemberGroup]
 }
 
 type Transaction{

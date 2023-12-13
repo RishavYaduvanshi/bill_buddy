@@ -2,10 +2,12 @@ from uuid import uuid4
 from ariadne import MutationType
 from django.utils import timezone
 from user_management import models as user_models
+from auth import jwt_required
 
 mutation = MutationType()
 
 @mutation.field("createGroup")
+@jwt_required
 def resolve_create_group(_,info,group_name,group_length,created_by):
     from group_management.models import Group
     
@@ -20,6 +22,7 @@ def resolve_create_group(_,info,group_name,group_length,created_by):
     return group
 
 @mutation.field("joinToGroup")
+@jwt_required
 def resolve_join_to_group(_,info,person_id,group_id):
     from group_management.models import Group
     from user_management.models import Person
